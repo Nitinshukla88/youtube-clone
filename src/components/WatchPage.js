@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux';
-import { closeMenu } from '../utils/appSlices/globalSlice';
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { closeMenu } from "../utils/appSlices/globalSlice";
 
 const WatchPage = () => {
+  const dispatch = useDispatch();
 
-    const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(closeMenu());
+  }, []);
+  return <div>WatchPage</div>;
+};
 
-    useEffect(() =>{
-        dispatch(closeMenu());
-    }, []);
-  return (
-    <div>WatchPage</div>
-  )
-}
-
-export default WatchPage
+export default WatchPage;
