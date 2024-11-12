@@ -8,10 +8,13 @@ const globalSlice = createSlice({
     reducers: {
         toggleMenu : (state) => {
             state.isMenuOpen = !state.isMenuOpen
+        },
+        closeMenu : (state) => {
+            state.isMenuOpen = false
         }
     }
 });
 
-export const { toggleMenu } = globalSlice.actions;
+export const { toggleMenu, closeMenu } = globalSlice.actions;
 
 export default globalSlice.reducer;
