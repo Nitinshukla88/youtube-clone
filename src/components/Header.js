@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { toggleMenu } from "../utils/appSlices/globalSlice";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 
 const Header = () => {
+
+  const [searchQuery, setsearchQuery] = useState("");
+
+  const getSearchResults = async()=> {
+    const response = await fetch(YOUTUBE_SEARCH_API+searchQuery);
+    const json = await response.json();
+    console.log(json);
+  }
+
+  useEffect(()=> {       
+    const timer = setTimeout(() => {
+      getSearchResults()
+    }, 200);
+    return ()=>{
+      clearTimeout(timer);
+    }
+  }, [searchQuery]);
 
   const dispatch = useDispatch();
 
   const toggleMenuhandler = () => {
     dispatch(toggleMenu());
-  }
+  };
   return (
     <div className="grid grid-flow-col p-2 shadow-lg">
       <div className="flex col-span-1">
@@ -25,13 +43,22 @@ const Header = () => {
         />
       </div>
       <div className="col-span-8 flex items-center justify-center">
-        <input type="text" className="border-gray-400 border w-1/2 rounded-l-full p-2" placeholder="Type to search"></input>
-        <button className="border-gray-400 bg-gray-100 border rounded-r-full p-2">Search</button>
+        <input
+          type="text"
+          className="border-gray-400 border w-1/2 rounded-l-full p-2"
+          placeholder="Type to search"
+          value={searchQuery}
+          onChange={(e) => setsearchQuery(e.target.value)}
+        ></input>
+        <button className="border-gray-400 bg-gray-100 border rounded-r-full p-2">
+          Search
+        </button>
       </div>
       <div className="col-span-3">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxMWBEVm_N2aPSbAbZrY2w5FBCPiv7zOuJ2A&s"
-          alt="user-logo" className="h-8"
+          alt="user-logo"
+          className="h-8"
         />
       </div>
     </div>
