@@ -9,12 +9,10 @@ const Header = () => {
   const [searchQuery, setsearchQuery] = useState("");
   const [searchSuggestions, setsearchSuggestions] = useState([]);
   const [showSuggestions, setshowSuggestions] = useState(false);
-  console.log(searchSuggestions);
 
   const getSearchResults = async () => {
     const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
     const json = await response.json();
-    console.log(json);
     setsearchSuggestions(json[1]);
     dispatch(cacheSuggestion({ [searchQuery] : json[1]}));
   };
