@@ -1,14 +1,61 @@
 import React from "react";
+import CommentList from "./CommentList";
 
-const comments = [
-    {
-        name : "Nitin Shula",
-        text : "nothing",
-    }
-]
+const commentsData = [
+  {
+    name: "Nitin Shukla",
+    text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+    replies: [
+      {
+        name: "Nitin Shukla",
+        text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+        replies: [
+          {
+            name: "Nitin Shukla",
+            text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+            replies: [
+              {
+                name: "Nitin Shukla",
+                text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+                replies: [
+                  {
+                    name: "Nitin Shukla",
+                    text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+                    replies: [
+
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    name: "Nitin Shukla",
+    text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+    replies: [
+      {
+        name: "Nitin Shukla",
+        text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+        replies: [
+          {
+            name: "Nitin Shukla",
+            text: "Reprehenderit esse exercitation in consectetur nostrud amet do commodo magna veniam do excepteur proident",
+          },
+        ],
+      },
+    ],
+  },
+];
 
 const CommentPage = () => {
-  return <div>CommentPage</div>;
+  return <div>
+    <p className="font-bold text-xl">Comments:</p>
+    <CommentList comments={commentsData}/>
+  </div>;
 };
 
 export default CommentPage;
