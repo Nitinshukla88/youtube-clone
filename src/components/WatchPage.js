@@ -32,7 +32,7 @@ const WatchPage = () => {
     <div className="flex w-full">
       <div className="w-[1050px]">
         <iframe
-          width="920"
+          width="850"
           height="470"
           src={"https://www.youtube.com/embed/" + searchParams.get("v")}
           title="YouTube video player"
@@ -40,7 +40,7 @@ const WatchPage = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           referrerpolicy="strict-origin-when-cross-origin"
           allowFullScreen
-          className="ml-32 my-6 rounded-lg"
+          className="ml-28 my-6 rounded-lg"
         ></iframe>
         <div className="ml-32">
           <p className="font-bold mb-2 text-lg break-words">{snippet?.title}</p>
@@ -89,7 +89,7 @@ const WatchPage = () => {
           <CommentPage />
         </div>
       </div>
-      <div className="w-full border border-black mx-10 my-6 rounded-lg h-[84rem] overflow-y-scroll p-2">
+      <div className="w-full border border-black mx-10 my-6 rounded-lg h-[88rem] overflow-y-scroll">
         <MoreVideosContainer/>
       </div>
     </div>
