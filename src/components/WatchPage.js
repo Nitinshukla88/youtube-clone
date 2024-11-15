@@ -4,10 +4,10 @@ import { closeMenu } from "../utils/appSlices/globalSlice";
 import { useSearchParams } from "react-router-dom";
 import { VIDEO_API } from "../utils/constants";
 import CommentPage from "./CommentPage";
+import MoreVideosContainer from "./MoreVideosContainer";
 
 const WatchPage = () => {
   const [videoData, setvideoData] = useState([]);
-  console.log(videoData);
 
   const [searchParams] = useSearchParams();
   const dispatch = useDispatch();
@@ -29,46 +29,68 @@ const WatchPage = () => {
   const { snippet, statistics } = videoData?.items?.[0] || {};
 
   return (
-    <div>
-      <iframe
-        width="920"
-        height="470"
-        src={"https://www.youtube.com/embed/" + searchParams.get("v")}
-        title="YouTube video player"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allowFullScreen
-        className="mx-32 my-6 rounded-lg"
-      ></iframe>
-      <div className="ml-32">
-        <p className="font-bold mb-2 text-lg">{snippet?.title}</p>
-        <div className="flex">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxMWBEVm_N2aPSbAbZrY2w5FBCPiv7zOuJ2A&s"
-            className="w-12 h-12 mx-2"
-          />
-          <div className="flex flex-col">
-            <p className="font-semibold">{snippet?.channelTitle}</p>
-            <p className="text-sm">
-              {(
-                statistics?.commentCount /
-                Math.pow(10, statistics?.commentCount.length - 1)
-              ).toFixed(2)}M subscribers
-            </p>
+    <div className="flex w-full">
+      <div className="w-[1050px]">
+        <iframe
+          width="920"
+          height="470"
+          src={"https://www.youtube.com/embed/" + searchParams.get("v")}
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowFullScreen
+          className="ml-32 my-6 rounded-lg"
+        ></iframe>
+        <div className="ml-32">
+          <p className="font-bold mb-2 text-lg break-words">{snippet?.title}</p>
+          <div className="flex justify-between">
+            <div className="flex">
+              <img
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxMWBEVm_N2aPSbAbZrY2w5FBCPiv7zOuJ2A&s"
+                className="w-12 h-12 mx-2"
+              />
+              <div className="flex flex-col">
+                <p className="font-semibold">{snippet?.channelTitle}</p>
+                <p className="text-sm">
+                  {(
+                    statistics?.commentCount /
+                    Math.pow(10, statistics?.commentCount.length - 1)
+                  ).toFixed(2)}
+                  M subscribers
+                </p>
+              </div>
+              <button className="bg-black text-white h-9 mt-1 ml-8 rounded-full px-5">
+                Subsribe
+              </button>
+            </div>
+            <div>
+              <button className="h-9 mt-1 bg-gray-200 rounded-full px-3 shadow-md">
+                👍{" "}
+                {Math.ceil(
+                  statistics?.likeCount /
+                    Math.pow(10, statistics?.likeCount.length - 2)
+                )}
+                K | 👎
+              </button>
+              <button className="h-9 mt-1 ml-4 border border-gray-100 bg-gray-200 rounded-full px-3 shadow-md">
+                Share ⏩
+              </button>
+              <button className="h-9 mt-1 ml-4 bg-gray-200 rounded-full px-3 shadow-md">
+                ⬇️ Download
+              </button>
+              <button className="h-9 mt-1 ml-4 bg-gray-200 rounded-full px-3 shadow-md">
+                ...
+              </button>
+            </div>
           </div>
-          <button className="bg-black text-white h-9 mt-1 mx-8 rounded-full px-5">
-              Subsribe
-            </button>
-          <button className="h-9 mt-1 ml-40 bg-gray-200 rounded-full px-3 shadow-md">👍 {Math.ceil(statistics?.likeCount /
-                Math.pow(10, statistics?.likeCount.length - 2))}K | 👎</button>
-          <button className="h-9 mt-1 ml-4 border border-gray-100 bg-gray-200 rounded-full px-3 shadow-md">Share ⏩</button>
-          <button className="h-9 mt-1 ml-4 bg-gray-200 rounded-full px-3 shadow-md">⬇️ Download</button>
-          <button className="h-9 mt-1 ml-4 bg-gray-200 rounded-full px-3 shadow-md">...</button>
+        </div>
+        <div className="ml-32 my-6">
+          <CommentPage />
         </div>
       </div>
-      <div className="mx-32 my-6">
-        <CommentPage />
+      <div className="w-full border border-black mx-10 my-6 rounded-lg h-[84rem] overflow-y-scroll p-2">
+        <MoreVideosContainer/>
       </div>
     </div>
   );
