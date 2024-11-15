@@ -43,7 +43,7 @@ const WatchPage = () => {
           className="ml-28 my-6 rounded-lg"
         ></iframe>
         <div className="ml-32">
-          <p className="font-bold mb-2 text-lg break-words">{snippet?.title}</p>
+          <p className="font-semibold mb-2 text-lg break-words">{snippet?.title}</p>
           <div className="flex justify-between">
             <div className="flex">
               <img
@@ -89,7 +89,7 @@ const WatchPage = () => {
           <CommentPage />
         </div>
       </div>
-      <div className="w-full border border-black mx-10 my-6 rounded-lg h-[88rem] overflow-y-scroll">
+      <div className="w-full mx-10 my-6 rounded-lg h-[94rem] overflow-y-scroll">
         <MoreVideosContainer/>
       </div>
     </div>

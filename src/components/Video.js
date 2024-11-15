@@ -5,11 +5,11 @@ const Video = ({ videoData }) => {
 
     const { snippet, statistics } = videoData;
   return (
-    <div className='flex pb-2 rounded-lg border border-b-gray-200'>
+    <div className='flex mb-3 rounded-lg cursor-pointer hover:bg-gray-100'>
         <img src={snippet.thumbnails.medium.url} className='h-[7rem] w-[12rem] rounded-lg'/>
-        <div>
-            <p className='text-sm line-clamp-2 font-semibold text-ellipsis overflow-hidden'>{snippet.title}</p>
-            <p className='text-xs'>{snippet.channelTitle}</p>
+        <div className='px-2'>
+            <p className='text-sm line-clamp-2 font-semibold text-ellipsis mb-1 overflow-hidden'>{snippet.title}</p>
+            <p className='text-xs mb-1'>{snippet.channelTitle}</p>
             <div>
               <span className='text-xs'>{(
                     statistics?.viewCount /
