@@ -51,7 +51,7 @@ const WatchPage = () => {
                 className="w-12 h-12 mx-2"
               />
               <div className="flex flex-col">
-                <p className="font-semibold">{snippet?.channelTitle}</p>
+                <p className="font-medium">{snippet?.channelTitle}</p>
                 <p className="text-sm">
                   {(
                     statistics?.commentCount /
