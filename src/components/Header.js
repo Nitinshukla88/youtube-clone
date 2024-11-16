@@ -53,11 +53,11 @@ const Header = () => {
           className="h-12 mt-2 cursor-pointer"
           onClick={() => toggleMenuhandler()}
         />
-        <img
+        <a href="/"><img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcgDC5KbVCgEGLQgwB22LXxPNb4jBvyHwLmw&s"
           alt="youtube-logo"
           className="h-16"
-        />
+        /></a>
       </div>
       <div className="col-span-6 flex items-center justify-center">
         <div>

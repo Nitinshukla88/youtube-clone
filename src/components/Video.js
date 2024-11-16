@@ -1,7 +1,6 @@
 import React from 'react'
 
 const Video = ({ videoData }) => {
-    console.log(videoData);
 
     const { snippet, statistics } = videoData;
   return (
