@@ -18,7 +18,7 @@ const WatchPage = () => {
 
   useEffect(() => {
     getVideoData();
-  }, []);
+  }, [searchParams]);
 
   const getVideoData = async () => {
     const response = await fetch(VIDEO_API + "&id=" + searchParams.get("v"));
