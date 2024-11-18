@@ -27,7 +27,6 @@ const WatchPage = () => {
   };
 
   const { snippet, statistics } = videoData?.items?.[0] || {};
-  // console.log(videoData.items[0]);
 
   return (
     <div className="flex w-full">
