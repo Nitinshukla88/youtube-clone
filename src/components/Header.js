@@ -20,7 +20,7 @@ const Header = () => {
   });
 
   const getSearchResults = async () => {
-    const response = await fetch(YOUTUBE_SEARCH_API + searchQuery);
+    const response = await fetch(YOUTUBE_SEARCH_API + searchQuery, {headers:{'x-cors-api-key': process.env.REACT_APP_YOUTUBE_SEARCH_API_KEY}});
     const json = await response.json();
     setsearchSuggestions(json[1]);
     dispatch(cacheSuggestion({ [searchQuery]: json[1] }));
